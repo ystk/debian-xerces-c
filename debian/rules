@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+
+# Enable all hardening options.
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+
+VERSION := $(shell dpkg-parsechangelog | \
+             awk '/Version:/ {print $$2}' | cut -d- -f 1 | sed -e 's/~/./g')
+
+# Variables used by cdbs
+DEB_TAR_SRCDIR = xerces-c-$(VERSION)
+DEB_COMPRESS_EXCLUDE = examples html
+
+# Include cdbs rules files.
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/autoreconf.mk
+
+# This disables explicit passing of -msse2 to gcc.  It does not
+# actually disable sse2 extensions for platforms such as x86_64
+# (amd64) which enable sse2 extensions by default.
+DEB_CONFIGURE_EXTRA_FLAGS = --disable-sse2
+
+DEB_CONFIGURE_USER_FLAGS = --libdir="\$${prefix}/lib/$(DEB_HOST_MULTIARCH)"
+
+clean::
+	$(RM) *.cdbs-config_list
+	$(RM) debian/stamp-samples
+
+post-patches:: debian/stamp-samples
+debian/stamp-samples:
+	-$(RM) -r $(DEB_SRCDIR)/samples.clean
+	cp -a $(DEB_SRCDIR)/samples $(DEB_SRCDIR)/samples.clean
+	touch debian/stamp-samples
+
+install/libxerces-c-dev::
+	mkdir -p debian/tmp/usr/share/doc/libxerces-c-dev
+	cp -a $(DEB_SRCDIR)/samples.clean \
+		debian/tmp/usr/share/doc/libxerces-c-dev/examples
+
+install/libxerces-c-doc::
+	mkdir -p debian/tmp/usr/share/doc/libxerces-c-doc
+	cp -a $(DEB_SRCDIR)/doc/html \
+		debian/tmp/usr/share/doc/libxerces-c-doc/html
+
+install/libxerces-c-samples::
+	perl debian/misc/create_missing_manual_pages
