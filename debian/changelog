@@ -1,3 +1,10 @@
+xerces-c (3.1.1-5.1+deb8u1) jessie-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * CVE-2016-0729: Buffer overlows during processing and error reporting
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 24 Feb 2016 19:25:29 +0100
+
 xerces-c (3.1.1-5.1) unstable; urgency=high
 
   * Non-maintainer upload.
