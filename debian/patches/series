@@ -1,3 +1,4 @@
 hurd-path-max.patch
 CVE-2015-0252.patch
 CVE-2016-0729.patch
+CVE-2016-2099.patch

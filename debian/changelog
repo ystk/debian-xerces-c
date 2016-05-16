@@ -1,3 +1,11 @@
+xerces-c (3.1.1-5.1+deb8u2) jessie-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * CVE-2016-2099: Use-after-free in heap on specially crafted XML input
+    (Closes: #823863)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 14 May 2016 05:45:10 +0200
+
 xerces-c (3.1.1-5.1+deb8u1) jessie-security; urgency=high
 
   * Non-maintainer upload by the Security Team.
