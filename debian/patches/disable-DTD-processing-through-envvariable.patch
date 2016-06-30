@@ -1,0 +1,29 @@
+Description: Disable DTD processing through the use of an env variable
+ XERCES_DISABLE_DTD set to "1" will cause the scanner to report a fatal
+ error if a DTD is seen. Existing applications won't see any change.
+Origin: upstream, http://svn.apache.org/r1747620
+Bug: https://issues.apache.org/jira/browse/XERCESC-2070
+Forwarded: not-needed
+Author: Scott Cantor <cantor.2@osu.edu> 
+Last-Update: 2016-06-28
+
+--- a/src/xercesc/internal/XMLScanner.cpp
++++ b/src/xercesc/internal/XMLScanner.cpp
+@@ -1270,8 +1270,15 @@ void XMLScanner::scanProlog()
+                     if (sawDocTypeDecl) {
+                         emitError(XMLErrs::DuplicateDocTypeDecl);
+                     }
+-                    scanDocTypeDecl();
+-                    sawDocTypeDecl = true;
++
++                    const char* envvar = getenv("XERCES_DISABLE_DTD");
++                    if (envvar && !strcmp(envvar, "1")) {
++                    	emitError(XMLErrs::InvalidDocumentStructure);
++                    }
++                    else {
++                    	scanDocTypeDecl();
++                    	sawDocTypeDecl = true;
++                    }
+ 
+                     // if reusing grammar, this has been validated already in first scan
+                     // skip for performance

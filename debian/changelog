@@ -1,3 +1,14 @@
+xerces-c (3.1.1-5.1+deb8u3) jessie-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * CVE-2016-4463: Apache Xerces-C XML Parser Crashes on Malformed DTD
+    (Closes: #828990)
+  * Enable the ability to disable DTD processing through the use of an env
+    variable
+  * Add NEWS.Debian entry to document the XERCES_DISABLE_DTD variable
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 28 Jun 2016 16:53:20 +0200
+
 xerces-c (3.1.1-5.1+deb8u2) jessie-security; urgency=high
 
   * Non-maintainer upload by the Security Team.

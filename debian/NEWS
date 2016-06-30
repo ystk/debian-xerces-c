@@ -1,0 +1,9 @@
+xerces-c (3.1.1-5.1+deb8u3) jessie-security; urgency=high
+
+  In addition to the fix for CVE-2016-4463 this update enables applications to
+  fully disable DTD processing through the use of an environment variable.
+  .
+  XERCES_DISABLE_DTD set to "1" will cause the scanner to report a fatal error
+  if a DTD is seen. Existing applications won't see any change.
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 28 Jun 2016 16:50:55 +0200
