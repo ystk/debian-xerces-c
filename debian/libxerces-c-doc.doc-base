@@ -1,0 +1,12 @@
+Document: libxerces-c-doc
+Title: Xerces-C++ Documentation
+Author: The Apache Software Foundation
+Abstract: The Xerces C++ documentation includes general information,
+ documentation of the Xerces API, FAQs, release information, sample
+ code, and a lot of other useful information about the Xerces
+ validating XML parser.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libxerces-c-doc/html/index.html
+Files: /usr/share/doc/libxerces-c-doc/html/*
