@@ -1,0 +1,108 @@
+xerces-c (3.1.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 01 May 2010 08:39:53 -0400
+
+xerces-c (3.1.0-3) unstable; urgency=low
+
+  * Invoke configure with --disable-sse2 to disable sse2 extensions on
+    platforms for which they not are enabled by default.  This enables
+    xerces-c to work on older ix86 processors in particular.  This does
+    not disable sse2 extensions on systems for which they are enabled by
+    default, such as amd64 and ia64. (Closes: #574857)
+
+ -- Jay Berkenbilt <qjb@debian.org>  Fri, 09 Apr 2010 22:11:54 -0400
+
+xerces-c (3.1.0-2) unstable; urgency=low
+
+  * Fix importNode so that it works with xmlns=""; patch from upstream.
+    (Closes: #572293)
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 06 Mar 2010 12:44:16 -0500
+
+xerces-c (3.1.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated standards version to 3.8.4.  No changes required.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 06 Feb 2010 16:46:23 -0500
+
+xerces-c (3.1.0~rc1-1) unstable; urgency=low
+
+  * New upstream release; public release candidate uploaded at request of
+    upstream.
+  * Updated source format to '3.0 (quilt)'
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 05 Dec 2009 14:58:32 -0500
+
+xerces-c (3.0.1-2) unstable; urgency=low
+
+  * Add dependency for libxerces-c-dev on libicu-dev.  (Closes: #540964)
+  * Update standards to 3.8.3.  No changes required.
+  * Apply patch to correct CVE-2009-1885: DoS attack from nested DTDs.
+    (Closes: #540297)
+
+ -- Jay Berkenbilt <qjb@debian.org>  Fri, 21 Aug 2009 17:47:51 -0400
+
+xerces-c (3.0.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sun, 22 Feb 2009 16:52:23 -0500
+
+xerces-c (3.0.0-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Jay Berkenbilt <qjb@debian.org>  Fri, 03 Oct 2008 18:24:57 -0400
+
+xerces-c (3.0.0~b2-1) experimental; urgency=low
+
+  * New upstream release
+  * Stopped using tarball in tarball, switched patchsys to quilt, and
+    created README.source.  Updated standards version to 3.8.0.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 02 Aug 2008 09:12:24 -0400
+
+xerces-c (3.0.0~b1-6) experimental; urgency=low
+
+  * Regenerate Makefile.in from patched Makefile.am.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Tue, 24 Jun 2008 10:56:57 -0400
+
+xerces-c (3.0.0~b1-5) experimental; urgency=low
+
+  * Add another change from upstream to address ICU-related failures.
+  * Replace Apache License with reference to file in common-licenses.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Mon, 23 Jun 2008 10:43:50 -0400
+
+xerces-c (3.0.0~b1-4) experimental; urgency=low
+
+  * Pull in all changes from upstream svn.  See if this addresses ongoing
+    build failures.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 03 May 2008 09:46:49 -0400
+
+xerces-c (3.0.0~b1-3) experimental; urgency=low
+
+  * Fix signature of main.  (Closes: #478418)
+
+ -- Jay Berkenbilt <qjb@debian.org>  Mon, 28 Apr 2008 22:14:15 -0400
+
+xerces-c (3.0.0~b1-2) experimental; urgency=low
+
+  * Apply patch from upstream to handle ICU makefile's use of .o or .ao
+    for non-PIC object files on various platforms.  (Closes: #474756)
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sun, 27 Apr 2008 21:01:48 -0400
+
+xerces-c (3.0.0~b1-1) experimental; urgency=low
+
+  * Initial release of re-organized xerces packages.  Going forward, any
+    given debian release will contain only one version of xerces-c at any
+    given major version number.  This source package, xerces-c, will
+    always correspond to the latest version.
+
+ -- Jay Berkenbilt <qjb@debian.org>  Sat, 22 Mar 2008 11:23:13 -0400

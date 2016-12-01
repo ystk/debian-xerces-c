@@ -1,0 +1,33 @@
+#!/usr/bin/env perl
+require 5.008;
+BEGIN { $^W = 1; }
+use strict;
+use File::Copy;
+
+my $whoami = ($0 =~ m,([^/\\]*)$,) ? $1 : $0;
+
+my @programs = ();
+my $dir = "debian/tmp/usr/bin";
+opendir(D, $dir) or die;
+my @entries = readdir(D) or die;
+closedir(D);
+foreach my $entry (@entries)
+{
+    my $fullpath = "$dir/$entry";
+    if ((-f $fullpath) && (-x $fullpath))
+    {
+	push(@programs, $entry);
+    }
+}
+my $mandir = 'debian/tmp/usr/share/man/man1';
+mkdir "debian/tmp/usr", 0777;
+mkdir "debian/tmp/usr/share", 0777;
+mkdir "debian/tmp/usr/share/man", 0777;
+mkdir "debian/tmp/usr/share/man/man1", 0777;
+foreach my $prog (@programs)
+{
+    open(M, ">$mandir/$prog.1") or die;
+    print M ".so man1/xerces-c-sample.1\n";
+    close(M);
+}
+copy("debian/misc/xerces-c-sample.1", "$mandir/xerces-c-sample.1") or die;
