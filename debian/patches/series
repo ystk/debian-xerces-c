@@ -5,3 +5,4 @@ CVE-2016-2099.patch
 CVE-2016-4463.patch
 disable-DTD-processing-through-envvariable.patch
 CVE-2017-12627.patch
+CVE-2018-1311-mitigation.patch

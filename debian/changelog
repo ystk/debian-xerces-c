@@ -1,3 +1,12 @@
+xerces-c (3.1.1-5.1+deb8u5) jessie-security; urgency=high
+
+  * Non-maintainer upload.
+  * CVE-2018-1311 mitigation: fix use-after-free vulnerability when
+    processing external DTD, at the expense of a memory leak.  Users may
+    mitigate both by setting the XERCES_DISABLE_DTD environment variable.
+
+ -- Sylvain Beucler <beuc@debian.org>  Fri, 11 Dec 2020 18:09:35 +0100
+
 xerces-c (3.1.1-5.1+deb8u4) jessie; urgency=medium
 
   * Fix CVE-2017-12627: Alberto Garcia, Francisco Oca and Suleman Ali of
